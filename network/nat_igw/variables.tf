@@ -15,5 +15,5 @@ variable "vpc_name" {
 
 variable "create_igw" {
   description = "Determine wheter to create igw or not"
-  type = bool
+  type        = bool
 }

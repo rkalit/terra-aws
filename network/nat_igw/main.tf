@@ -1,5 +1,5 @@
 resource "aws_internet_gateway" "this" {
-  count = var.create_igw ? 1 : 0
+  count  = var.create_igw ? 1 : 0
   vpc_id = var.vpc_id
 
   tags = {
@@ -8,12 +8,12 @@ resource "aws_internet_gateway" "this" {
 }
 
 resource "aws_eip" "this" {
-    domain = "vpc"
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "this" {
   allocation_id = aws_eip.this.id
-  subnet_id = var.private_subnet
+  subnet_id     = var.private_subnet
 
   tags = {
     Name = "${var.vpc_name}-ngw"
